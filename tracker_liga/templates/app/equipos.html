@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Equipos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head> 
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">FootData</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+                <div class="navbar-nav">
+                <a class="nav-link" aria-current="page" href="http://127.0.0.1:8000">Home</a>
+                <a class="nav-link active" href="http://127.0.0.1:8000/equipos/?temporada=2021-2022&liga=LaLiga&genero=masculino&temporada2=2020-2021&liga2=LaLiga&genero2=masculino">Equipos</a>
+                <a class="nav-link" href="http://127.0.0.1:8000/partidos">Partidos</a>
+                <a class="nav-link disabled">Predicciones</a>
+                </div>
+          </div>
+        </div>
+      </nav>
+        
+    <div class="container">
+
+        <div class="">
+            <form method=GET>
+                <h4>Grafico 1: </h4><br>
+                <label for="temporada">Temporada: </label>
+                <input type="text" id="temporada" name="temporada" value="2021-2022"><br>
+                <label for="liga">Liga: </label>
+                <input type="text" id="liga" name="liga" value="LaLiga"><br>
+                <label for="genero">Genero: </label>
+                <input type="text" id="genero" name="genero" value="masculino"><br>
+                <h4>Grafico 2: </h4><br>
+                <label for="temporada2">Temporada: </label>
+                <input type="text" id="temporada2" name="temporada2" value="2020-2021"><br>
+                <label for="liga2">Liga: </label>
+                <input type="text" id="liga2" name="liga2" value="LaLiga"><br>
+                <label for="genero2">Genero: </label>
+                <input type="text" id="genero2" name="genero2" value="masculino"><br>
+                <input type="submit" value="Cargar"><br><br>
+            </form>
+        </div>
+
+        <select id="grafico" class="form-select" aria-label="Default select example">
+            <option selected>Selecciona el grafico</option>
+            <option value="tabla">Tabla</option>
+            <option value="edadMedia">Edad media</option>
+            <option value="posesion">Posesion</option>
+            <option value="golesAfavor">Goles a favor</option>
+            <option value="asistencias">Asistencias</option>
+            <option value="golesEsperados">Goles esperados</option>
+            <option value="conducciones">Conducciones de balon</option>
+            <option value="pasesProgresivos">Pases progresivos</option>
+        </select>
+
+        <button type="button" class="btn btn-primary" onclick="mostrar_grafico()">
+            Actualizar    
+        </button>
+
+        <script>
+            function mostrar_grafico(){  
+                var container = document.getElementById('mapa');
+                
+                switch (document.getElementById('grafico').value) {
+                    case 'tabla':
+                        
+                        break;
+                    case 'edadMedia':
+                        container.innerHTML = '<img src="/plot_edad1" /> <img src="/plot_edad2" />';
+                        break;
+                    case 'posesion':
+                        container.innerHTML = '<img src="/plot_posesion1" /> <img src="/plot_posesion2" />';
+                        break;
+                    case 'golesAfavor':
+                        container.innerHTML = '<img src="/plot_goles1" /> <img src="/plot_goles2" />';
+                        break;
+                    case 'asistencias':
+                        container.innerHTML = '<img src="/plot_asistencias1" /> <img src="/plot_asistencias2" />';
+                        break;
+                    case 'golesEsperados':
+                        container.innerHTML = '<img src="/plot_goles_esperados1" /> <img src="/plot_goles_esperados2" />';
+                        break;
+                    case 'conducciones':
+                        container.innerHTML = '<img src="/plot_conducciones1" /> <img src="/plot_conducciones2" />';
+                        break;
+                    case 'pasesProgresivos':
+                        container.innerHTML = '<img src="/plot_pases_progresivos1" /> <img src="/plot_pases_progresivos2" />';
+                        break;
+                    default:
+                        
+                        break;
+                }
+            }
+
+        </script>
+
+        <div id="mapa">
+        </div>
+        
+        <div class="table-responsive">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Equipo</th>
+                            <th>Partidos Jugados</th>
+                            <th>Edad media</th>
+                            <th>Posesion</th>
+                            <th>Goles a favor</th>
+                            <th>Asistencias</th>
+                            <th>Tarjetas amarillas</th>
+                            <th>Tarjetas rojas</th>
+                            <th>Goles esperados</th>
+                            <th>Conducciones</th>
+                            <th>Pases progresivos</th>
+                            <th>Goles por partido</th>
+                            <th>Asistencias por partido</th>
+                            <th>Goles esperados por partido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for c in equipos %}
+                            <tr>
+                                <td>{{ c.nombre }}</td>
+                                <td>{{ c.partidos_jugados }}</td>
+                                <td>{{ c.edad_media }}</td>
+                                <td>{{ c.posesion }}</td>
+                                <td>{{ c.goles_favor }}</td>
+                                <td>{{ c.asistencias }}</td>
+                                <td>{{ c.tarjeta_amarilla }}</td>
+                                <td>{{ c.tarjeta_roja }}</td>
+                                <td>{{ c.goles_esperados }}</td>
+                                <td>{{ c.conducciones }}</td>
+                                <td>{{ c.pases_progresivos }}</td>
+                                <td>{{ c.goles_partido }}</td>
+                                <td>{{ c.asistencias_partido }}</td>
+                                <td>{{ c.goles_esperados_partido }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>

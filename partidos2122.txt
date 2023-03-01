@@ -1,0 +1,380 @@
+Valencia,1.5,1–0,1.4,Getafe
+Mallorca,0.5,1–1,0.6,Betis
+Cádiz,0.6,1–1,0.9,Levante
+Alavés,1.7,1–4,1.7,Real Madrid
+Osasuna,0.9,0–0,0.5,Espanyol
+Celta Vigo,2.3,1–2,1.5,Atlético Madrid
+Barcelona,2.8,4–2,0.8,Real Sociedad
+Sevilla,3.7,3–0,0.4,Rayo Vallecano
+Villarreal,1.1,0–0,0.3,Granada
+Elche,1.1,0–0,0.6,Athletic Club
+Betis,1.1,1–1,1.6,Cádiz
+Alavés,0.5,0–1,0.7,Mallorca
+Espanyol,1.3,0–0,0.6,Villarreal
+Granada,1.1,1–1,1.5,Valencia
+Athletic Club,1.4,1–1,1.0,Barcelona
+Real Sociedad,1.9,1–0,0.5,Rayo Vallecano
+Atlético Madrid,1.2,1–0,0.2,Elche
+Levante,1.9,3–3,1.6,Real Madrid
+Getafe,0.5,0–1,1.2,Sevilla
+Osasuna,2.0,0–0,0.1,Celta Vigo
+Mallorca,1.0,1–0,0.4,Espanyol
+Valencia,1.6,3–0,0.4,Alavés
+Celta Vigo,1.1,0–1,1.4,Athletic Club
+Real Sociedad,1.0,1–0,0.4,Levante
+Elche,0.5,1–1,1.3,Sevilla
+Betis,0.6,0–1,0.9,Real Madrid
+Barcelona,1.1,2–1,0.4,Getafe
+Rayo Vallecano,2.2,4–0,0.5,Granada
+Cádiz,1.6,2–3,2.4,Osasuna
+Atlético Madrid,1.7,2–2,0.3,Villarreal
+Levante,1.0,1–1,2.2,Rayo Vallecano
+Athletic Club,1.4,2–0,0.2,Mallorca
+Espanyol,0.4,1–2,0.8,Atlético Madrid
+Osasuna,0.6,1–4,0.9,Valencia
+Cádiz,0.3,0–2,1.9,Real Sociedad
+Real Madrid,3.2,5–2,1.8,Celta Vigo
+Getafe,0.3,0–1,0.8,Elche
+Granada,0.6,1–2,2.3,Betis
+Celta Vigo,1.0,1–2,1.1,Cádiz
+Rayo Vallecano,2.2,3–0,1.1,Getafe
+Atlético Madrid,0.9,0–0,1.0,Athletic Club
+Elche,0.4,1–1,1.1,Levante
+Alavés,0.5,0–2,1.4,Osasuna
+Mallorca,0.5,0–0,1.4,Villarreal
+Real Sociedad,1.3,0–0,0.5,Sevilla
+Betis,1.9,2–2,1.1,Espanyol
+Valencia,0.9,1–2,1.3,Real Madrid
+Barcelona,1.8,1–1,0.8,Granada
+Getafe,0.3,1–2,1.1,Atlético Madrid
+Levante,1.7,0–2,0.7,Celta Vigo
+Athletic Club,0.9,1–2,1.0,Rayo Vallecano
+Sevilla,1.0,3–1,0.4,Valencia
+Espanyol,1.7,1–0,0.5,Alavés
+Real Madrid,2.6,6–1,1.4,Mallorca
+Villarreal,3.2,4–1,1.2,Elche
+Osasuna,1.0,1–3,2.4,Betis
+Granada,1.3,2–3,1.7,Real Sociedad
+Cádiz,1.3,0–0,0.4,Barcelona
+Alavés,0.7,1–0,0.7,Atlético Madrid
+Valencia,0.9,1–1,0.8,Athletic Club
+Sevilla,1.8,2–0,0.7,Espanyol
+Real Madrid,1.1,0–0,0.5,Villarreal
+Mallorca,2.6,2–3,0.9,Osasuna
+Barcelona,2.9,3–0,0.8,Levante
+Rayo Vallecano,1.3,3–1,1.0,Cádiz
+Real Sociedad,2.4,1–0,0.5,Elche
+Betis,1.9,2–0,0.6,Getafe
+Celta Vigo,1.3,1–0,0.8,Granada
+Athletic Club,2.0,1–0,0.9,Alavés
+Osasuna,0.5,1–0,0.2,Rayo Vallecano
+Mallorca,0.6,1–0,1.2,Levante
+Cádiz,0.2,0–0,1.1,Valencia
+Atlético Madrid,1.2,2–0,0.7,Barcelona
+Elche,1.3,1–0,0.5,Celta Vigo
+Espanyol,1.2,2–1,1.6,Real Madrid
+Getafe,0.7,1–1,0.7,Real Sociedad
+Villarreal,2.6,2–0,0.5,Betis
+Granada,0.1,1–0,1.3,Sevilla
+Levante,0.9,0–0,0.6,Getafe
+Real Sociedad,0.4,1–0,0.2,Mallorca
+Rayo Vallecano,1.2,2–1,0.4,Elche
+Celta Vigo,1.2,0–1,1.0,Sevilla
+Villarreal,0.5,1–2,0.6,Osasuna
+Barcelona,1.9,3–1,0.4,Valencia
+Alavés,0.9,0–1,1.4,Betis
+Espanyol,1.3,2–0,0.4,Cádiz
+Osasuna,1.0,1–1,0.5,Granada
+Valencia,1.8,2–2,0.6,Mallorca
+Cádiz,1.5,0–2,1.3,Alavés
+Elche,0.9,2–2,0.8,Espanyol
+Athletic Club,2.8,2–1,0.5,Villarreal
+Sevilla,1.6,5–3,1.9,Levante
+Barcelona,1.6,1–2,1.5,Real Madrid
+Betis,1.4,3–2,1.0,Rayo Vallecano
+Atlético Madrid,1.7,2–2,0.8,Real Sociedad
+Getafe,0.5,0–3,1.6,Celta Vigo
+Alavés,1.7,1–0,0.3,Elche
+Espanyol,1.3,1–1,3.3,Athletic Club
+Villarreal,1.7,3–3,1.4,Cádiz
+Rayo Vallecano,0.8,1–0,2.5,Barcelona
+Mallorca,1.5,1–1,0.8,Sevilla
+Betis,2.0,4–1,1.6,Valencia
+Real Madrid,0.7,0–0,0.5,Osasuna
+Celta Vigo,1.4,0–2,1.7,Real Sociedad
+Granada,2.0,1–1,0.4,Getafe
+Levante,1.8,2–2,0.9,Atlético Madrid
+Elche,1.1,1–2,1.1,Real Madrid
+Sevilla,2.0,2–0,0.6,Osasuna
+Valencia,1.1,2–0,0.8,Villarreal
+Barcelona,1.3,1–1,0.9,Alavés
+Cádiz,1.7,1–1,0.9,Mallorca
+Atlético Madrid,2.3,3–0,0.5,Betis
+Getafe,0.8,2–1,0.6,Espanyol
+Real Sociedad,1.1,1–1,1.0,Athletic Club
+Rayo Vallecano,0.6,0–0,0.6,Celta Vigo
+Levante,1.1,0–3,1.0,Granada
+Athletic Club,0.5,0–1,0.5,Cádiz
+Espanyol,1.6,2–0,2.0,Granada
+Celta Vigo,1.5,3–3,0.9,Barcelona
+Alavés,1.5,2–1,0.8,Levante
+Real Madrid,2.1,2–1,1.4,Rayo Vallecano
+Villarreal,1.4,1–0,0.2,Getafe
+Valencia,1.1,3–3,2.3,Atlético Madrid
+Osasuna,0.4,0–2,1.5,Real Sociedad
+Mallorca,2.3,2–2,0.8,Elche
+Betis,0.3,0–2,1.7,Sevilla
+Levante,0.5,0–0,0.5,Athletic Club
+Celta Vigo,1.0,1–1,2.8,Villarreal
+Sevilla,1.8,2–2,1.1,Alavés
+Atlético Madrid,1.0,1–0,0.5,Osasuna
+Barcelona,1.4,1–0,1.0,Espanyol
+Getafe,1.2,4–0,0.4,Cádiz
+Granada,0.7,1–4,3.5,Real Madrid
+Elche,0.8,0–3,1.9,Betis
+Real Sociedad,0.3,0–0,0.7,Valencia
+Rayo Vallecano,2.4,3–1,0.7,Mallorca
+Athletic Club,1.1,2–2,1.1,Granada
+Alavés,0.9,1–2,1.2,Celta Vigo
+Valencia,1.6,1–1,1.2,Rayo Vallecano
+Mallorca,0.4,0–0,0.8,Getafe
+Villarreal,1.1,1–3,3.2,Barcelona
+Betis,2.6,3–1,0.3,Levante
+Espanyol,0.4,1–0,1.7,Real Sociedad
+Cádiz,1.0,1–4,3.8,Atlético Madrid
+Real Madrid,1.2,2–1,0.7,Sevilla
+Osasuna,1.8,1–1,1.4,Elche
+Real Madrid,1.8,1–0,2.4,Athletic Club
+Granada,1.0,2–1,2.1,Alavés
+Sevilla,0.4,1–0,1.7,Villarreal
+Barcelona,1.0,0–1,0.6,Betis
+Atlético Madrid,1.5,1–2,0.6,Mallorca
+Real Sociedad,0.7,0–2,1.6,Real Madrid
+Rayo Vallecano,0.4,1–0,0.6,Espanyol
+Elche,2.4,3–1,1.7,Cádiz
+Levante,0.5,0–0,0.3,Osasuna
+Celta Vigo,0.9,1–2,1.3,Valencia
+Getafe,1.2,0–0,0.5,Athletic Club
+Mallorca,0.8,0–0,1.0,Celta Vigo
+Espanyol,2.3,4–3,2.9,Levante
+Alavés,0.7,1–1,1.0,Getafe
+Valencia,1.6,2–1,0.9,Elche
+Athletic Club,1.4,0–1,0.2,Sevilla
+Villarreal,2.4,2–0,1.5,Rayo Vallecano
+Osasuna,0.3,2–2,0.9,Barcelona
+Betis,1.6,4–0,0.9,Real Sociedad
+Real Madrid,0.4,2–0,0.7,Atlético Madrid
+Cádiz,0.7,1–1,1.0,Granada
+Celta Vigo,1.2,3–1,0.4,Espanyol
+Rayo Vallecano,1.8,2–0,0.2,Alavés
+Real Sociedad,0.9,1–3,2.9,Villarreal
+Barcelona,2.7,3–2,1.3,Elche
+Sevilla,0.5,2–1,1.0,Atlético Madrid
+Granada,1.9,4–1,0.9,Mallorca
+Athletic Club,1.3,3–2,2.1,Betis
+Getafe,1.1,1–0,0.6,Osasuna
+Real Madrid,2.0,0–0,0.2,Cádiz
+Levante,2.7,3–4,2.1,Valencia
+Villarreal,3.3,5–2,0.8,Alavés
+Sevilla,0.3,1–1,1.8,Barcelona
+Granada,0.6,2–1,1.5,Atlético Madrid
+Athletic Club,1.0,1–2,1.1,Real Madrid
+Valencia,0.7,1–2,2.0,Espanyol
+Getafe,0.9,1–0,0.7,Real Madrid
+Atlético Madrid,1.7,2–0,0.1,Rayo Vallecano
+Elche,1.2,0–0,1.1,Granada
+Alavés,1.7,1–1,0.9,Real Sociedad
+Betis,1.4,0–2,2.6,Celta Vigo
+Mallorca,0.8,0–1,1.3,Barcelona
+Villarreal,3.4,5–0,0.4,Levante
+Osasuna,0.9,1–3,1.4,Athletic Club
+Cádiz,0.2,0–1,0.9,Sevilla
+Levante,1.2,2–0,1.2,Mallorca
+Real Sociedad,1.7,1–0,0.4,Celta Vigo
+Granada,0.9,1–1,0.6,Barcelona
+Real Madrid,3.9,4–1,1.3,Valencia
+Rayo Vallecano,1.2,1–1,1.3,Betis
+Sevilla,0.7,1–0,0.1,Getafe
+Osasuna,2.2,2–0,0.2,Cádiz
+Alavés,0.5,0–0,0.8,Athletic Club
+Villarreal,2.1,2–2,0.7,Atlético Madrid
+Espanyol,1.3,1–2,1.0,Elche
+Elche,0.2,1–0,0.6,Villarreal
+Betis,2.4,4–0,0.3,Alavés
+Cádiz,0.9,2–2,1.7,Espanyol
+Celta Vigo,1.2,2–0,0.5,Osasuna
+Valencia,0.5,1–1,0.9,Sevilla
+Getafe,0.9,4–2,0.7,Granada
+Espanyol,1.4,1–4,2.4,Betis
+Levante,1.0,0–2,0.7,Cádiz
+Villarreal,1.9,3–0,1.2,Mallorca
+Sevilla,1.1,2–2,0.7,Celta Vigo
+Atlético Madrid,2.5,3–2,0.7,Valencia
+Granada,0.7,0–2,2.1,Osasuna
+Real Madrid,3.4,2–2,0.6,Elche
+Real Sociedad,0.8,0–0,0.3,Getafe
+Rayo Vallecano,2.0,0–1,0.4,Athletic Club
+Alavés,0.6,0–1,1.5,Barcelona
+Getafe,0.8,3–0,0.5,Levante
+Elche,0.9,3–1,0.9,Alavés
+Mallorca,2.3,2–1,0.8,Cádiz
+Celta Vigo,0.7,2–0,0.8,Rayo Vallecano
+Osasuna,0.4,0–0,1.3,Sevilla
+Valencia,1.1,0–0,0.4,Real Sociedad
+Barcelona,1.0,4–2,1.3,Atlético Madrid
+Betis,0.6,0–2,0.9,Villarreal
+Real Madrid,2.1,1–0,0.6,Granada
+Athletic Club,0.8,2–1,0.6,Espanyol
+Sevilla,0.8,2–0,0.3,Elche
+Cádiz,0.7,0–0,1.0,Celta Vigo
+Villarreal,0.4,0–0,1.7,Real Madrid
+Rayo Vallecano,0.9,0–3,1.6,Osasuna
+Atlético Madrid,2.5,4–3,2.1,Getafe
+Alavés,1.8,2–1,1.2,Valencia
+Levante,1.7,2–4,2.2,Betis
+Real Sociedad,2.9,2–0,1.2,Granada
+Espanyol,1.1,2–2,1.5,Barcelona
+Mallorca,1.9,3–2,1.6,Athletic Club
+Atlético Madrid,1.3,0–1,0.6,Levante
+Elche,2.5,2–1,0.7,Rayo Vallecano
+Granada,2.3,1–4,4.9,Villarreal
+Osasuna,0.6,0–3,1.1,Atlético Madrid
+Cádiz,0.5,1–1,0.9,Getafe
+Real Madrid,2.9,3–0,0.6,Alavés
+Espanyol,1.5,1–1,0.5,Sevilla
+Valencia,0.8,1–4,2.0,Barcelona
+Betis,1.5,2–1,0.4,Mallorca
+Athletic Club,2.8,4–0,0.4,Real Sociedad
+Celta Vigo,1.2,1–1,1.7,Levante
+Levante,2.1,3–0,0.6,Elche
+Mallorca,1.8,0–1,0.6,Valencia
+Getafe,1.1,2–2,1.0,Alavés
+Rayo Vallecano,0.9,0–1,2.1,Real Madrid
+Atlético Madrid,0.6,2–0,0.8,Celta Vigo
+Villarreal,4.4,5–1,1.1,Espanyol
+Sevilla,1.4,2–1,0.7,Betis
+Real Sociedad,1.0,1–0,0.4,Osasuna
+Barcelona,3.1,4–0,0.3,Athletic Club
+Granada,0.2,0–0,0.7,Cádiz
+Mallorca,0.5,0–2,1.6,Real Sociedad
+Alavés,1.4,0–0,1.2,Sevilla
+Osasuna,0.8,1–0,0.5,Villarreal
+Espanyol,0.1,2–0,0.4,Getafe
+Valencia,1.6,3–1,0.4,Granada
+Real Madrid,2.0,4–1,0.8,Real Sociedad
+Cádiz,1.1,2–0,1.1,Rayo Vallecano
+Elche,1.1,1–2,4.1,Barcelona
+Celta Vigo,2.7,4–3,1.5,Mallorca
+Betis,1.0,1–3,2.8,Atlético Madrid
+Athletic Club,3.1,3–1,0.5,Levante
+Atlético Madrid,0.3,2–1,0.8,Cádiz
+Levante,1.1,1–1,0.4,Espanyol
+Granada,1.4,0–1,1.2,Elche
+Villarreal,1.3,1–0,0.8,Celta Vigo
+Getafe,0.9,0–0,0.2,Valencia
+Rayo Vallecano,0.4,1–1,0.3,Sevilla
+Betis,0.7,1–0,0.5,Athletic Club
+Real Sociedad,2.2,1–0,0.8,Alavés
+Barcelona,3.6,4–0,0.2,Osasuna
+Mallorca,1.4,0–3,1.8,Real Madrid
+Athletic Club,2.0,1–1,0.4,Getafe
+Alavés,1.7,2–3,2.1,Granada
+Elche,0.6,0–1,0.9,Valencia
+Osasuna,2.3,3–1,1.0,Levante
+Rayo Vallecano,1.4,0–1,1.4,Atlético Madrid
+Espanyol,1.3,1–0,0.5,Mallorca
+Cádiz,1.7,1–0,0.2,Villarreal
+Celta Vigo,0.9,0–0,0.5,Betis
+Sevilla,0.3,0–0,1.1,Real Sociedad
+Real Madrid,0.8,0–4,3.4,Barcelona
+Getafe,1.7,1–0,0.4,Mallorca
+Levante,2.0,2–0,1.2,Villarreal
+Celta Vigo,1.6,1–2,2.9,Real Madrid
+Atlético Madrid,3.0,4–1,0.5,Alavés
+Athletic Club,1.9,2–1,0.5,Elche
+Betis,4.4,4–1,0.4,Osasuna
+Granada,2.1,2–2,0.8,Rayo Vallecano
+Valencia,0.2,0–0,0.1,Cádiz
+Barcelona,1.9,1–0,0.6,Sevilla
+Real Sociedad,2.2,1–0,0.4,Espanyol
+Sevilla,2.9,4–2,0.9,Granada
+Cádiz,1.3,1–2,1.3,Betis
+Mallorca,1.1,1–0,0.5,Atlético Madrid
+Villarreal,1.3,1–1,1.8,Athletic Club
+Real Madrid,1.6,2–0,0.4,Getafe
+Osasuna,2.1,1–0,0.5,Alavés
+Espanyol,1.3,1–0,0.8,Celta Vigo
+Elche,0.6,1–2,1.7,Real Sociedad
+Levante,3.4,2–3,1.2,Barcelona
+Rayo Vallecano,0.6,1–1,0.5,Valencia
+Real Sociedad,0.9,0–0,0.5,Betis
+Elche,1.6,3–0,1.5,Mallorca
+Alavés,0.5,1–0,1.0,Rayo Vallecano
+Valencia,1.3,1–2,1.1,Osasuna
+Getafe,0.9,1–2,2.7,Villarreal
+Granada,1.0,1–4,3.9,Levante
+Atlético Madrid,1.2,2–1,0.7,Espanyol
+Athletic Club,0.5,0–2,0.4,Celta Vigo
+Sevilla,0.9,2–3,1.2,Real Madrid
+Barcelona,1.2,0–1,1.7,Cádiz
+Mallorca,0.8,2–1,0.6,Alavés
+Betis,1.2,0–1,0.6,Elche
+Villarreal,2.4,2–0,0.3,Valencia
+Atlético Madrid,1.1,0–0,0.2,Granada
+Celta Vigo,0.4,0–2,1.1,Getafe
+Osasuna,1.1,1–3,4.5,Real Madrid
+Levante,2.7,2–3,1.8,Sevilla
+Espanyol,0.4,0–1,0.6,Rayo Vallecano
+Cádiz,3.1,2–3,1.6,Athletic Club
+Real Sociedad,0.8,0–1,1.1,Barcelona
+Barcelona,1.7,0–1,0.3,Rayo Vallecano
+Sevilla,0.7,1–1,0.9,Cádiz
+Alavés,2.4,2–1,1.3,Villarreal
+Real Madrid,1.8,4–0,1.3,Espanyol
+Valencia,0.5,1–1,1.3,Levante
+Athletic Club,1.3,2–0,0.7,Atlético Madrid
+Elche,0.6,1–1,1.1,Osasuna
+Granada,0.7,1–1,1.1,Celta Vigo
+Rayo Vallecano,1.4,1–1,0.7,Real Sociedad
+Barcelona,1.2,2–1,1.0,Mallorca
+Getafe,0.7,0–0,0.2,Betis
+Levante,2.1,2–1,2.1,Real Sociedad
+Mallorca,1.4,2–6,1.6,Granada
+Athletic Club,1.3,0–0,0.1,Valencia
+Cádiz,1.8,3–0,0.1,Elche
+Celta Vigo,1.9,4–0,0.5,Alavés
+Betis,0.7,1–2,1.2,Barcelona
+Getafe,0.6,0–0,0.7,Rayo Vallecano
+Villarreal,2.2,1–1,0.8,Sevilla
+Espanyol,0.6,1–1,0.6,Osasuna
+Atlético Madrid,2.3,1–0,1.1,Real Madrid
+Valencia,1.2,0–3,1.6,Betis
+Granada,0.9,1–0,0.3,Athletic Club
+Barcelona,1.1,3–1,0.7,Celta Vigo
+Osasuna,0.6,1–1,0.3,Getafe
+Alavés,2.6,2–1,0.9,Espanyol
+Sevilla,1.5,0–0,0.6,Mallorca
+Elche,0.2,0–2,1.9,Atlético Madrid
+Real Sociedad,3.0,3–0,0.7,Cádiz
+Rayo Vallecano,1.8,1–5,2.4,Villarreal
+Real Madrid,3.5,6–0,1.0,Levante
+Espanyol,0.7,1–1,1.6,Valencia
+Levante,1.9,3–1,0.5,Alavés
+Villarreal,0.7,1–2,2.1,Real Sociedad
+Getafe,0.3,0–0,0.2,Barcelona
+Athletic Club,1.1,2–0,0.9,Osasuna
+Atlético Madrid,1.2,1–1,0.7,Sevilla
+Betis,2.3,2–0,1.1,Granada
+Celta Vigo,2.1,1–0,0.5,Elche
+Mallorca,0.8,2–1,1.2,Rayo Vallecano
+Cádiz,2.7,1–1,1.6,Real Madrid
+Real Madrid,1.2,0–0,0.9,Betis
+Rayo Vallecano,2.5,2–4,2.5,Levante
+Valencia,1.5,2–0,0.9,Celta Vigo
+Elche,2.7,3–1,1.3,Getafe
+Osasuna,0.8,0–2,1.2,Mallorca
+Granada,1.7,0–0,0.3,Espanyol
+Alavés,0.4,0–1,1.8,Cádiz
+Barcelona,0.6,0–2,0.8,Villarreal
+Sevilla,1.2,1–0,0.7,Athletic Club
+Real Sociedad,2.5,1–2,0.7,Atlético Madrid
