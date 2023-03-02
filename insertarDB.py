@@ -10,19 +10,12 @@ def abrirFichero(fichero):
   file = []
   liga = []
   liga = openFile.readline().split(',') # liga, año, femenino/masculino
-
+  liga[-1] = liga[-1].replace('\n','')
   lineas = openFile.readlines()
   for linea in lineas:
     file.append(linea.split(',')) # ["madrid", "4", "5", "6"] 
     file[-1] = file[-1] + liga
-   
-    #for i in range(0, len(lastItem)): # Tratar de convertir a int
-    #  try:
-    #    lastItem[i] = int(lastItem[i])
-    #  except:
-    #    pass
-    #
-    #file[-1] = lastItem
+
   openFile.close()
   return file
 
@@ -50,8 +43,14 @@ def insertarFicheroPartido(conexion, cursor, fichero):
   conexion.commit()
   conexion.close()
   
+def insertarFicheroEnfrentamiento(conexion, cursor, fichero):
+  sentencia = "INSERT INTO tracker_liga_enfrentamientos (id, resultado, goles_favor, goles_contra, adversario, goles_esperados_favor, goles_esperados_contra, posesion, fecha, liga, genero, equipo) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?)"
+  cursor.executemany(sentencia, fichero)
+  conexion.commit()
+  conexion.close()
+  
 def eliminarTabla(conexion, cursor):
-  sentencia = "DELETE FROM tracker_liga_equipo"
+  sentencia = "DELETE FROM tracker_liga_enfrentamientos"
   cursor.execute(sentencia)
   conexion.commit()
   conexion.close()
@@ -62,4 +61,3 @@ def leer_Equipos(conexion, cursor):
   equipos = cursor.fetchall()
   conexion.close()
   return equipos
-

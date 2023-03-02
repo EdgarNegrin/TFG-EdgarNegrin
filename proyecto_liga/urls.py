@@ -23,6 +23,7 @@ urlpatterns = [
     path('insertar',insertar),
     path('eliminar',eliminar),
     path('partidos',partidos),
+    path('prediccion',prediccion),
     path('equipos/',equipos),
     path('plot_edad1',plot_edad1),
     path('plot_edad2',plot_edad2),
