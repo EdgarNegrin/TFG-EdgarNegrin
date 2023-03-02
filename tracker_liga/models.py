@@ -33,3 +33,16 @@ class Partido(models.Model):
     
     def __str__(self):
         return self.equipo_local + ' vs ' + self.equipo_visitante
+    
+class Enfrentamientos(models.Model):
+    resultado = models.CharField(max_length=50, default='null')
+    goles_favor = models.CharField(max_length=50, default='null')
+    goles_contra = models.CharField(max_length=50, default='null')
+    adversario = models.CharField(max_length=50, default='null')
+    goles_esperados_favor = models.CharField(max_length=50, default='null')
+    goles_esperados_contra = models.CharField(max_length=50, default='null')
+    posesion = models.CharField(max_length=50, default='null')
+    fecha = models.CharField(max_length=50, default='null')
+    liga = models.CharField(max_length=50, default='null')
+    genero = models.CharField(max_length=50, default='null')
+    equipo = models.CharField(max_length=50, default='null')

@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Equipo, Partido
-from insertarDB import insertarFicheroEquipo, insertarFicheroPartido, eliminarTabla, conectar, abrirFichero
+from .models import Equipo, Partido, Enfrentamientos
+from insertarDB import insertarFicheroEquipo, insertarFicheroPartido, insertarFicheroEnfrentamiento, eliminarTabla, conectar, abrirFichero
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 import io
+from IA import *
 
 # Create your views here.
 def home(request):
@@ -12,7 +13,7 @@ def home(request):
     return render(request, 'app/home.html')
 
 def partidos(request):
-    return render(request, 'app/partidos.html', {'partidos': Partido.objects.all()})
+    return render(request, 'app/partidos.html', {'partidos': Enfrentamientos.objects.all()})
 
 def equipos(request):
     global Gtemporada 
@@ -31,16 +32,18 @@ def equipos(request):
 
 def insertar(request):
     con, cursor = conectar()
-    fichero = abrirFichero('datos2021.txt')
-    insertarFicheroEquipo(con, cursor, fichero)
-    #fichero = abrirFichero('partidos2122.txt')
-    #insertarFicheroPartido(con, cursor, fichero)
+    fichero = abrirFichero('Datos/alaves2021.txt')
+    insertarFicheroEnfrentamiento(con, cursor, fichero)
     return HttpResponse('Datos insertados')
 
 def eliminar(request):
     con, cursor = conectar()
     eliminarTabla(con, cursor)
     return HttpResponse('Datos eliminados')
+
+def prediccion(request):
+    datos([(partido.equipo, partido.adversario, partido.goles_favor, partido.goles_contra, partido.resultado) for partido in Enfrentamientos.objects.all()])
+    return render(request, 'app/prediccion.html')
 
 def plot_edad1(request):
     return grafico_edad(Gtemporada, Gliga, Ggenero)
