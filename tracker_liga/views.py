@@ -24,16 +24,16 @@ def equipos(request):
     global Ggenero2
     Gtemporada = request.GET.get('temporada')
     Gliga = request.GET.get('liga')
-    Ggenero = request.GET.get('genero') + '\n'
+    Ggenero = request.GET.get('genero')
     Gtemporada2 = request.GET.get('temporada2')
     Gliga2 = request.GET.get('liga2')
-    Ggenero2 = request.GET.get('genero2') + '\n'
+    Ggenero2 = request.GET.get('genero2')
     return render(request, 'app/equipos.html', {'equipos': Equipo.objects.all()})
 
 def insertar(request):
     con, cursor = conectar()
-    fichero = abrirFichero('Datos/alaves2021.txt')
-    insertarFicheroEnfrentamiento(con, cursor, fichero)
+    fichero = abrirFichero('Datos/ligas/datosSuperLeague2122.txt')
+    insertarFicheroEquipo(con, cursor, fichero)
     return HttpResponse('Datos insertados')
 
 def eliminar(request):
@@ -92,8 +92,8 @@ def plot_pases_progresivos2(request):
 
 def grafico_edad(fecha, liga, genero):
     #Datos a representar
-    x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
-    y = [equipo.edad_media for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
+    x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha,liga=liga,genero=genero)]
+    y = [equipo.edad_media for equipo in Equipo.objects.filter(fecha=fecha,liga=liga,genero=genero)]
 
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()

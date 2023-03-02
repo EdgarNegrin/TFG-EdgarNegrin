@@ -50,7 +50,7 @@ def insertarFicheroEnfrentamiento(conexion, cursor, fichero):
   conexion.close()
   
 def eliminarTabla(conexion, cursor):
-  sentencia = "DELETE FROM tracker_liga_enfrentamientos"
+  sentencia = "DELETE FROM tracker_liga_equipo"
   cursor.execute(sentencia)
   conexion.commit()
   conexion.close()
