@@ -42,7 +42,8 @@ def eliminar(request):
     return HttpResponse('Datos eliminados')
 
 def prediccion(request):
-    datos([(partido.equipo, partido.adversario, partido.goles_favor, partido.goles_contra, partido.resultado) for partido in Enfrentamientos.objects.all()])
+    #datos([(partido.equipo, partido.adversario, partido.goles_favor, partido.goles_contra, partido.resultado) for partido in Enfrentamientos.objects.all()])
+    prediccion
     return render(request, 'app/prediccion.html')
 
 def plot_edad1(request):
@@ -100,7 +101,7 @@ def grafico_edad(fecha, liga, genero):
     
     
     axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
-    axes.scatter(x,y)
+    axes.plot(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
     axes.set_ylabel("Edad media")
@@ -132,7 +133,7 @@ def grafico_posesion(fecha, liga, genero):
     f = plt.figure()
     
     axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
-    axes.scatter(x,y)
+    axes.bar(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
     axes.set_ylabel("Posesion %")
@@ -164,7 +165,7 @@ def grafico_goles(fecha, liga, genero):
     f = plt.figure()
     
     axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
-    axes.scatter(x,y)
+    axes.bar(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
     axes.set_ylabel("Goles a favor")

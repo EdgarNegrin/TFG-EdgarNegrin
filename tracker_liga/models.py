@@ -46,3 +46,6 @@ class Enfrentamientos(models.Model):
     liga = models.CharField(max_length=50, default='null')
     genero = models.CharField(max_length=50, default='null')
     equipo = models.CharField(max_length=50, default='null')
+    
+    def __str__(self):
+        return self.equipo + ' vs ' + self.adversario
