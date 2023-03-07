@@ -1,19 +1,22 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Equipo, Partido, Enfrentamientos
-from insertarDB import insertarFicheroEquipo, insertarFicheroPartido, insertarFicheroEnfrentamiento, eliminarTabla, conectar, abrirFichero
+from .models import Equipo, Partido
+from insertarDB import insertarFicheroEquipo, eliminarTabla, conectar, abrirFichero, leer_ligas
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 import io
+import csv
 from IA import *
 
 # Create your views here.
 def home(request):
+    con, cursor = conectar()
+    ligas = leer_ligas(con, cursor)
     equipos = Equipo.objects.all()
-    return render(request, 'app/home.html')
+    return render(request, 'app/home.html', {'equipos': equipos, 'ligas': ligas})
 
 def partidos(request):
-    return render(request, 'app/partidos.html', {'partidos': Enfrentamientos.objects.all()})
+    return render(request, 'app/partidos.html', {'partidos': Partido.objects.all()})
 
 def equipos(request):
     global Gtemporada 
@@ -34,6 +37,16 @@ def insertar(request):
     con, cursor = conectar()
     fichero = abrirFichero('Datos/ligas/datosSuperLeague2122.txt')
     insertarFicheroEquipo(con, cursor, fichero)
+    return HttpResponse('Datos insertados')
+
+def insertar_partidos(request):
+    con, cursor = conectar()
+    with open('Datos/prediccion/LaLiga_Matches_1995-2021.csv') as fin:
+        dr = csv.DictReader(fin)
+        to_db = [(i['Season'], i['Date'], i['HomeTeam'], i['AwayTeam'], i['FTHG'], i['FTAG'], i['FTR'], i['HTHG'], i['HTAG'], i['HTR']) for i in dr]
+    cursor.executemany("INSERT INTO tracker_liga_partido (id, temporada, fecha, equipo_local, equipo_visitante, FTHG, FTAG, FTR, HTHG, HTAG, HTR) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);", to_db)
+    con.commit()
+    con.close()
     return HttpResponse('Datos insertados')
 
 def eliminar(request):
@@ -63,7 +76,7 @@ def prediccion(request):
         else:
             resultado = 'Victoria para ' + equipo_visitante
     
-    return render(request, 'app/prediccion.html', {'resultado': resultado, 'precicion': precicion})
+    return render(request, 'app/prediccion.html', {'resultado': resultado, 'precicion': precicion, 'equipos': equipos_nombre})
 
 def plot_edad1(request):
     return grafico_edad(Gtemporada, Gliga, Ggenero)

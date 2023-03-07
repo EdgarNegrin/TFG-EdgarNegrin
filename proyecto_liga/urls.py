@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
     path('insertar',insertar),
+    path('insertar_partidos',insertar_partidos),
     path('eliminar',eliminar),
     path('partidos',partidos),
     path('prediccion/',prediccion),

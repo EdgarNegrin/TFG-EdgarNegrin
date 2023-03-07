@@ -25,27 +25,17 @@ class Equipo(models.Model):
     
 
 class Partido(models.Model):
+    temporada = models.CharField(max_length=50, default='null')
+    fecha = models.CharField(max_length=50, default='null')
     equipo_local = models.CharField(max_length=50, default='null')
-    goles_local_esperados = models.FloatField(default=0.0)
-    marcador = models.CharField(max_length=50, default='null')
-    goles_visitante_esperados = models.FloatField(default=0.0)
     equipo_visitante = models.CharField(max_length=50, default='null')
+    FTHG = models.CharField(max_length=50, default='null')
+    FTAG = models.CharField(max_length=50, default='null')
+    FTR = models.CharField(max_length=50, default='null')
+    HTHG = models.CharField(max_length=50, default='null')
+    HTAG = models.CharField(max_length=50, default='null')
+    HTR = models.CharField(max_length=50, default='null')
     
     def __str__(self):
         return self.equipo_local + ' vs ' + self.equipo_visitante
     
-class Enfrentamientos(models.Model):
-    resultado = models.CharField(max_length=50, default='null')
-    goles_favor = models.CharField(max_length=50, default='null')
-    goles_contra = models.CharField(max_length=50, default='null')
-    adversario = models.CharField(max_length=50, default='null')
-    goles_esperados_favor = models.CharField(max_length=50, default='null')
-    goles_esperados_contra = models.CharField(max_length=50, default='null')
-    posesion = models.CharField(max_length=50, default='null')
-    fecha = models.CharField(max_length=50, default='null')
-    liga = models.CharField(max_length=50, default='null')
-    genero = models.CharField(max_length=50, default='null')
-    equipo = models.CharField(max_length=50, default='null')
-    
-    def __str__(self):
-        return self.equipo + ' vs ' + self.adversario

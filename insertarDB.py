@@ -31,32 +31,27 @@ def insertarFicheroEquipo(conexion, cursor, fichero):
   conexion.commit()
   conexion.close()
 
-def insertarDatosPartido(conexion, cursor, datos):
-  sentencia = "INSERT INTO tracker_liga_partido (id, equipo_local, goles_local_esperados, marcador, goles_visitante_esperados, equipo_visitante) VALUES (NULL,?,?,?,?,?)"
-  cursor.executemany(sentencia, datos)
-  conexion.commit()
-  conexion.close()
-
 def insertarFicheroPartido(conexion, cursor, fichero):
   sentencia = "INSERT INTO tracker_liga_partido (id, equipo_local, goles_local_esperados, marcador, goles_visitante_esperados, equipo_visitante) VALUES (NULL,?,?,?,?,?)"
   cursor.executemany(sentencia, fichero)
   conexion.commit()
   conexion.close()
   
-def insertarFicheroEnfrentamiento(conexion, cursor, fichero):
-  sentencia = "INSERT INTO tracker_liga_enfrentamientos (id, resultado, goles_favor, goles_contra, adversario, goles_esperados_favor, goles_esperados_contra, posesion, fecha, liga, genero, equipo) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?)"
-  cursor.executemany(sentencia, fichero)
-  conexion.commit()
-  conexion.close()
-  
 def eliminarTabla(conexion, cursor):
-  sentencia = "DELETE FROM tracker_liga_partido"
+  sentencia = "DELETE FROM tracker_liga_enfrentamientos"
   cursor.execute(sentencia)
   conexion.commit()
   conexion.close()
   
 def leer_Equipos(conexion, cursor):
   sentencia = "SELECT * FROM tracker_liga_equipo"
+  cursor.execute(sentencia)
+  equipos = cursor.fetchall()
+  conexion.close()
+  return equipos
+
+def leer_ligas(conexion, cursor):
+  sentencia = "SELECT DISTINCT liga, genero, fecha FROM tracker_liga_equipo"
   cursor.execute(sentencia)
   equipos = cursor.fetchall()
   conexion.close()
