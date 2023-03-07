@@ -47,7 +47,6 @@
 
         <select id="grafico" class="form-select" aria-label="Default select example">
             <option selected>Selecciona el grafico</option>
-            <option value="tabla">Tabla</option>
             <option value="edadMedia">Edad media</option>
             <option value="posesion">Posesion</option>
             <option value="golesAfavor">Goles a favor</option>
@@ -66,9 +65,6 @@
                 var container = document.getElementById('mapa');
                 
                 switch (document.getElementById('grafico').value) {
-                    case 'tabla':
-                        
-                        break;
                     case 'edadMedia':
                         container.innerHTML = '<img src="/plot_edad1" /> <img src="/plot_edad2" />';
                         break;
@@ -101,56 +97,6 @@
         <div id="mapa">
         </div>
         
-        <div class="table-responsive">
-
-        <div class="row">
-            <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Equipo</th>
-                            <th>Partidos Jugados</th>
-                            <th>Edad media</th>
-                            <th>Posesion</th>
-                            <th>Goles a favor</th>
-                            <th>Asistencias</th>
-                            <th>Tarjetas amarillas</th>
-                            <th>Tarjetas rojas</th>
-                            <th>Goles esperados</th>
-                            <th>Conducciones</th>
-                            <th>Pases progresivos</th>
-                            <th>Goles por partido</th>
-                            <th>Asistencias por partido</th>
-                            <th>Goles esperados por partido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for c in equipos %}
-                            <tr>
-                                <td>{{ c.nombre }}</td>
-                                <td>{{ c.partidos_jugados }}</td>
-                                <td>{{ c.edad_media }}</td>
-                                <td>{{ c.posesion }}</td>
-                                <td>{{ c.goles_favor }}</td>
-                                <td>{{ c.asistencias }}</td>
-                                <td>{{ c.tarjeta_amarilla }}</td>
-                                <td>{{ c.tarjeta_roja }}</td>
-                                <td>{{ c.goles_esperados }}</td>
-                                <td>{{ c.conducciones }}</td>
-                                <td>{{ c.pases_progresivos }}</td>
-                                <td>{{ c.goles_partido }}</td>
-                                <td>{{ c.asistencias_partido }}</td>
-                                <td>{{ c.goles_esperados_partido }}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-
-                </table>
-            </div>
-            </div>
-            
-        </div>
-
     </div>
 
 </body>

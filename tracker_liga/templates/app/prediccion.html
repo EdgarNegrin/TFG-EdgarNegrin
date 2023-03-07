@@ -23,6 +23,7 @@
         </div>
       </nav>
       <div class="container">
+        
         <div class="">
           <form method=GET>
             <h4>Partido a predecir: </h4><br>
@@ -39,12 +40,24 @@
           Actualizar    
         </button>
 
-        <div id="prediccion">
-          <h3>Resultado: </h3>
-          <h4>{{ resultado }}</h4>
+        <div class="container">
+          <div id="prediccion">
+            <br><br>
+            <h3>Resultado: </h3>
+            <h4>{{ resultado }}</h4>
+          </div>
         </div>
-
         <img src="/plot_prediccion" />
+      
+
+        <div class="">
+          <h3>Equipos:</h3>
+          <ol>
+          {% for c in equipos %}
+            <li>{{ c }}</li>
+          {% endfor %}
+          </ol>
+        </div>
       </div>
 </body>
 </html>
