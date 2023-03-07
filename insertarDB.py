@@ -19,12 +19,6 @@ def abrirFichero(fichero):
   openFile.close()
   return file
 
-def insertarDatosEquipo(conexion, cursor, datos):
-  sentencia = "INSERT INTO tracker_liga_equipo VALUES (NULL,?,?,?,?)"
-  cursor.executemany(sentencia, datos)
-  conexion.commit()
-  conexion.close()
-
 def insertarFicheroEquipo(conexion, cursor, fichero):
   sentencia = "INSERT INTO tracker_liga_equipo (id, nombre, edad_media, posesion, partidos_jugados, goles_favor, asistencias, tarjeta_amarilla, tarjeta_roja, goles_esperados, conducciones, pases_progresivos, goles_partido, asistencias_partido, goles_esperados_partido, liga, fecha, genero) VALUES (NULL,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
   cursor.executemany(sentencia, fichero)

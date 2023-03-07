@@ -16,7 +16,9 @@ def home(request):
     return render(request, 'app/home.html', {'equipos': equipos, 'ligas': ligas})
 
 def partidos(request):
-    return render(request, 'app/partidos.html', {'partidos': Partido.objects.all()})
+    temporada = request.GET.get('temporada')
+    partidos_filtrados = Partido.objects.filter(temporada=temporada)
+    return render(request, 'app/partidos.html', {'partidos': partidos_filtrados, 'fecha': temporada})
 
 def equipos(request):
     global Gtemporada 
