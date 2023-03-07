@@ -23,7 +23,7 @@ urlpatterns = [
     path('insertar',insertar),
     path('eliminar',eliminar),
     path('partidos',partidos),
-    path('prediccion',prediccion),
+    path('prediccion/',prediccion),
     path('equipos/',equipos),
     path('plot_edad1',plot_edad1),
     path('plot_edad2',plot_edad2),
@@ -38,5 +38,6 @@ urlpatterns = [
     path('plot_conducciones1',plot_conducciones1),
     path('plot_conducciones2',plot_conducciones2),
     path('plot_pases_progresivos1',plot_pases_progresivos1),	
-    path('plot_pases_progresivos2',plot_pases_progresivos2)
+    path('plot_pases_progresivos2',plot_pases_progresivos2),
+    path('plot_prediccion',plot_prediccion)
 ]

@@ -42,9 +42,28 @@ def eliminar(request):
     return HttpResponse('Datos eliminados')
 
 def prediccion(request):
-    #datos([(partido.equipo, partido.adversario, partido.goles_favor, partido.goles_contra, partido.resultado) for partido in Enfrentamientos.objects.all()])
-    prediccion
-    return render(request, 'app/prediccion.html')
+    equipo_local = request.GET.get('local')
+    equipo_visitante = request.GET.get('visitante')
+    fecha = request.GET.get('fecha')
+    
+    modelo, lb_make_outs, equipos_nombre, precicion = crear_modelo()
+    dataframe = pd.DataFrame(
+        {
+            'HomeTeam': [equipo_local],
+            'AwayTeam': [equipo_visitante],
+            'Date': [fecha]
+        }
+    )
+    prediccion = crear_prediccion(dataframe, modelo, lb_make_outs, equipos_nombre)
+    if (prediccion[0][0] == 'H'):
+        resultado = 'Victoria para ' + equipo_local
+    else:
+        if (prediccion[0][0] == 'D'):
+            resultado = 'Empate'
+        else:
+            resultado = 'Victoria para ' + equipo_visitante
+    
+    return render(request, 'app/prediccion.html', {'resultado': resultado, 'precicion': precicion})
 
 def plot_edad1(request):
     return grafico_edad(Gtemporada, Gliga, Ggenero)
@@ -88,6 +107,33 @@ def plot_conducciones2(request):
 def plot_pases_progresivos2(request):
     return grafico_pases_progresivos(Gtemporada2, Gliga2, Ggenero2)
 
+def plot_prediccion(request):
+    num_partidos, num_local, num_empate, num_visitante = informacion_dataframe()
+    
+    # Creamos una figura y le dibujamos el gráfico
+    f = plt.figure()
+    
+    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes.pie([num_local, num_visitante, num_empate], labels=['Local', 'Visitante', 'Empate'], autopct='%1.1f%%')
+    f.autofmt_xdate(rotation=45)
+    axes.set_title("Total de resultados del dataset con " + str(num_partidos) + " partidos")
+
+    # Como enviaremos la imagen en bytes la guardaremos en un buffer
+    buf = io.BytesIO()
+    canvas = FigureCanvasAgg(f)
+    canvas.print_png(buf)
+
+    # Creamos la respuesta enviando los bytes en tipo imagen png
+    response = HttpResponse(buf.getvalue(), content_type='image/png')
+
+    # Limpiamos la figura para liberar memoria
+    f.clear()
+
+    # Añadimos la cabecera de longitud de fichero para más estabilidad
+    response['Content-Length'] = str(len(response.content))
+
+    # Devolvemos la response
+    return response
 
 # Creacion de imagenes de los graficos
 
