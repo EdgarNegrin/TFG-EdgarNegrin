@@ -1,11 +1,25 @@
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: machinelearning.py: Este fichero contiene la
+implementación de las funciones necesarias para crear el modelo de predicción
+'''
+
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
-import seaborn as sns
 import numpy as np
 import pandas as pd
 import xgboost as xgb
-    
+
+
+#
+# Descripcion: Esta función se encarga de crear el modelo de predicción
+# Parametros: 
+# Return: model(XGBClassifier): Modelo de predicción, lb_make_outs(LabelEncoder): Codificador de resultados, equipos_nombre(dict): Diccionario con los equipos, precicion(float): Precisión del modelo
+#
 def crear_modelo():
     dato = pd.read_csv('./Datos/prediccion/LaLiga_Matches_1995-2021.csv')
     
@@ -32,12 +46,8 @@ def crear_modelo():
     dato.Date = pd.to_datetime(dato.Date, dayfirst=True)
     dato['weekday'] = dato.Date.dt.weekday
     
-    # Transformamos el dia de la semana a seno y coseno ya que es un datos ciclico
-    dato['weekday_sin'] = np.sin(dato['weekday']*(2.*np.pi/7))
-    dato['weekday_cos'] = np.cos(dato['weekday']*(2.*np.pi/7))
-    
     # Separamos los datos en variables independientes y dependientes
-    columns_name=['weekday_sin','weekday_cos','categorical Home','categorical Away']
+    columns_name=['weekday','categorical Home','categorical Away']
     X_all = dato
     y_all = dato['categorical FTR']
     
@@ -55,20 +65,28 @@ def crear_modelo():
     return model, lb_make_outs, equipos_nombre, precicion
     
 
-
+#
+# Descripcion: Esta función se encarga de realizar una prediccion con el modelo
+# Parametros: prediccion(DataFrame): DataFrame con los datos de la prediccion, modelo(XGBClassifier): Modelo de predicción, lb_make_outs(LabelEncoder): Codificador de resultados, team_name(dict): Diccionario con los equipos
+# Return: resultado(array): Array con los resultados de la prediccion
+#
 def crear_prediccion(prediccion, modelo, lb_make_outs, team_name):
     df = prediccion.copy()
     df.Date = pd.to_datetime(df.Date, dayfirst=True)
-    df['weekday'] = df.Date.dt.weekday #se puede acceder a la fecha
-    df['weekday_sin'] = np.sin(df['weekday']*(2.*np.pi/7))
-    df['weekday_cos'] = np.cos(df['weekday']*(2.*np.pi/7))
+    df['weekday'] = df.Date.dt.weekday
     df['categorical Home'] = df.HomeTeam.apply(lambda x: team_name[x])
     df['categorical Away'] = df.AwayTeam.apply(lambda x: team_name[x])
-    cols = ['weekday_sin', 'weekday_cos', 'categorical Home', 'categorical Away']
+    cols = ['weekday', 'categorical Home', 'categorical Away']
     predictions = modelo.predict(df[cols])
-    return lb_make_outs.inverse_transform(predictions)
+    resultado = lb_make_outs.inverse_transform(predictions)
+    return resultado
 
 
+#
+# Descripcion: Esta función se extrae la informacion del dataset
+# Parametros: 
+# Return: num_partidos(int): Numero de partidos, num_local(int): Numero de partidos ganados por el equipo local, num_empate(int): Numero de partidos empatados, num_visitante(int): Numero de partidos ganados por el equipo visitante
+#
 def informacion_dataframe():
     dato = pd.read_csv('./Datos/prediccion/LaLiga_Matches_1995-2021.csv')
     

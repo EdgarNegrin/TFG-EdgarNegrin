@@ -1,11 +1,11 @@
-"""
-ASGI config for proyecto_liga project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.1/howto/deployment/asgi/
-"""
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: asgi.py: Este fichero contiene la
+implementación de la interfaz de aplicaciones de puerta de enlace asíncrona
+'''
 
 import os
 

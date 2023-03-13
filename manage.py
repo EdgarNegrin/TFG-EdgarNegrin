@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-"""Django's command-line utility for administrative tasks."""
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: manage.py: Este fichero contiene las
+tareas de administración del proyecto
+'''
 import os
 import sys
 
