@@ -25,6 +25,7 @@ cantidades de datos relacionados con el deporte del fútbol profesional.
 
 Ejecución de la pagina:
 
-1. Activar el entorno virtual que se encuentra en env/Scripts/Activate.ps1
-2. Ejecutar python manage.py runserver
-3. Dirigirse a la direccion y puerto que se comenta
+1. Activar el entorno virtual
+2. Instalar los paquetes necesarisos, estos se encuentran en requirements.txt(pip install -r requirements.txt)
+3. Ejecutar python manage.py runserver
+4. Dirigirse a la direccion y puerto que se comenta
