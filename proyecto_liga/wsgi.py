@@ -1,11 +1,11 @@
-"""
-WSGI config for proyecto_liga project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/
-"""
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: wsgi.py: Este fichero contiene la
+implementación de la interfaz de servidor de puerta de enlace interfaz web
+'''
 
 import os
 

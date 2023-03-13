@@ -25,6 +25,11 @@
       <div class="container">
         <h4>Ligas de las que se tienen datos de los equipos:</h4>
         <table class="table">
+          <tr>
+            <th>Liga </th>
+            <th>Genero</th>
+            <th>Temporada</th>
+          </tr>
           {% for c in ligas %}
             <tr>
               <td>{{ c.0 }}</td>

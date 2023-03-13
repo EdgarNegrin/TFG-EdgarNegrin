@@ -1,25 +1,48 @@
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: views.py: Este fichero contiene la
+implementación de las vistas de la aplicación
+'''
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Equipo, Partido
-from insertarDB import insertarFicheroEquipo, eliminarTabla, conectar, abrirFichero, leer_ligas
+from dataManager import insertarFicheroEquipo, eliminarTabla, conectar, abrirFichero, leer_ligas
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 import matplotlib.pyplot as plt
 import io
 import csv
-from IA import *
+from machinelearning import *
 
-# Create your views here.
+#
+# Descripcion: Esta función se encarga crear la vista home
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista home
+#
 def home(request):
     con, cursor = conectar()
     ligas = leer_ligas(con, cursor)
     equipos = Equipo.objects.all()
     return render(request, 'app/home.html', {'equipos': equipos, 'ligas': ligas})
 
+#
+# Descripcion: Esta función se encarga crear la vista partidos
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista partidos
+#
 def partidos(request):
     temporada = request.GET.get('temporada')
     partidos_filtrados = Partido.objects.filter(temporada=temporada)
     return render(request, 'app/partidos.html', {'partidos': partidos_filtrados, 'fecha': temporada})
 
+#
+# Descripcion: Esta función se encarga crear la vista equipos
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista equipos
+#
 def equipos(request):
     global Gtemporada 
     global Gliga
@@ -35,12 +58,22 @@ def equipos(request):
     Ggenero2 = request.GET.get('genero2')
     return render(request, 'app/equipos.html', {'equipos': Equipo.objects.all()})
 
+#
+# Descripcion: Esta función se encarga crear la vista insertar
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista insertar
+#
 def insertar(request):
     con, cursor = conectar()
     fichero = abrirFichero('Datos/ligas/datosSuperLeague2122.txt')
     insertarFicheroEquipo(con, cursor, fichero)
     return HttpResponse('Datos insertados')
 
+#
+# Descripcion: Esta función se encarga crear la vista insertar_partidos
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista insertar_partidos
+#
 def insertar_partidos(request):
     con, cursor = conectar()
     with open('Datos/prediccion/LaLiga_Matches_1995-2021.csv') as fin:
@@ -51,11 +84,21 @@ def insertar_partidos(request):
     con.close()
     return HttpResponse('Datos insertados')
 
+#
+# Descripcion: Esta función se encarga crear la vista eliminar
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista eliminar
+#
 def eliminar(request):
     con, cursor = conectar()
     eliminarTabla(con, cursor)
     return HttpResponse('Datos eliminados')
 
+#
+# Descripcion: Esta función se encarga crear la vista prediccion
+# Parametros: request: Petición del usuario
+# Return: Renderiza la vista prediccion
+#
 def prediccion(request):
     equipo_local = request.GET.get('local')
     equipo_visitante = request.GET.get('visitante')
@@ -78,8 +121,13 @@ def prediccion(request):
         else:
             resultado = 'Victoria para ' + equipo_visitante
     
-    return render(request, 'app/prediccion.html', {'resultado': resultado, 'precicion': precicion, 'equipos': equipos_nombre})
+    return render(request, 'app/prediccion.html', {'resultado': resultado, 'precicion': precicion, 'equipos': equipos_nombre, 'equipo_local': equipo_local, 'equipo_visitante': equipo_visitante})
 
+#
+# Descripcion: Estas funciones se encargan de crear los gráficos de la vista equipos dependiendo de los filtros
+# Parametros: request: Petición del usuario
+# Return: (HttpResponse)Devuelve la vista de la grafica
+#
 def plot_edad1(request):
     return grafico_edad(Gtemporada, Gliga, Ggenero)
 
@@ -122,6 +170,11 @@ def plot_conducciones2(request):
 def plot_pases_progresivos2(request):
     return grafico_pases_progresivos(Gtemporada2, Gliga2, Ggenero2)
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de predicción
+# Parametros: request: Petición del usuario
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def plot_prediccion(request):
     num_partidos, num_local, num_empate, num_visitante = informacion_dataframe()
     
@@ -150,8 +203,11 @@ def plot_prediccion(request):
     # Devolvemos la response
     return response
 
-# Creacion de imagenes de los graficos
-
+#
+# Descripcion: Esta función se encarga crear el gráfico de edad
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_edad(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha,liga=liga,genero=genero)]
@@ -161,7 +217,7 @@ def grafico_edad(fecha, liga, genero):
     f = plt.figure()
     
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.plot(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -175,16 +231,18 @@ def grafico_edad(fecha, liga, genero):
 
     # Creamos la respuesta enviando los bytes en tipo imagen png
     response = HttpResponse(buf.getvalue(), content_type='image/png')
-
-    # Limpiamos la figura para liberar memoria
     f.clear()
 
     # Añadimos la cabecera de longitud de fichero para más estabilidad
     response['Content-Length'] = str(len(response.content))
 
-    # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de posesion
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_posesion(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -193,7 +251,7 @@ def grafico_posesion(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.bar(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -217,6 +275,11 @@ def grafico_posesion(fecha, liga, genero):
     # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de goles
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_goles(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -225,7 +288,7 @@ def grafico_goles(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.bar(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -249,6 +312,11 @@ def grafico_goles(fecha, liga, genero):
     # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de asistencias
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_asistencias(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -257,7 +325,7 @@ def grafico_asistencias(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.scatter(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -281,6 +349,11 @@ def grafico_asistencias(fecha, liga, genero):
     # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de goles esperados
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_goles_esperados(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -289,7 +362,7 @@ def grafico_goles_esperados(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.scatter(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -313,6 +386,11 @@ def grafico_goles_esperados(fecha, liga, genero):
     # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de conducciones
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_conducciones(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -321,7 +399,7 @@ def grafico_conducciones(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.scatter(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")
@@ -345,6 +423,11 @@ def grafico_conducciones(fecha, liga, genero):
     # Devolvemos la response
     return response
 
+#
+# Descripcion: Esta función se encarga crear el gráfico de pases progresivos
+# Parametros: fecha: Fecha de la liga, liga: Liga, genero: Genero
+# Return: response(HttpResponse): Devuelve la vista de la grafica
+#
 def grafico_pases_progresivos(fecha, liga, genero):
     #Datos a representar
     x = [equipo.nombre for equipo in Equipo.objects.filter(fecha=fecha, liga=liga,genero=genero)]
@@ -353,7 +436,7 @@ def grafico_pases_progresivos(fecha, liga, genero):
     # Creamos una figura y le dibujamos el gráfico
     f = plt.figure()
     
-    axes = f.add_axes([0.1, 0.1, 0.8, 0.8])
+    axes = f.add_axes([0.2, 0.2, 0.8, 0.8])
     axes.scatter(x,y)
     f.autofmt_xdate(rotation=45)
     axes.set_xlabel("")

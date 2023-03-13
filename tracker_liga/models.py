@@ -1,6 +1,16 @@
+'''
+Universidad de la Laguna
+Proyecto: Footdata
+Autor: Edgar Negrín Gonzalez
+Email: alu0101210964@ull.edu.es
+Fichero: models.py: Este fichero contiene los
+modelos de la base de datos
+'''
 from django.db import models
 
-# Create your models here.
+#
+# Descripcion: Modelo de la tabla Equipo
+#
 class Equipo(models.Model):
     nombre = models.CharField(max_length=50)
     partidos_jugados = models.IntegerField(default=0) # Cambiarlo porque esta mal escrito
@@ -23,7 +33,9 @@ class Equipo(models.Model):
     def __str__(self):
         return self.nombre
     
-
+#
+# Descripcion: Modelo de la tabla Partido
+#
 class Partido(models.Model):
     temporada = models.CharField(max_length=50, default='null')
     fecha = models.CharField(max_length=50, default='null')
